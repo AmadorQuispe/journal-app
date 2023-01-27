@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { startLoadedNotes } from '../actions/notes';
 import { JournalScreen } from '../components/journal/JournalScreen';
@@ -36,7 +36,7 @@ export const AppRouter = () => {
     }
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route
                     path='/'                    
@@ -57,7 +57,7 @@ export const AppRouter = () => {
                 />
                 <Route path='*' element={<Navigate to="/" replace />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
 
 
 
