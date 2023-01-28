@@ -10,9 +10,8 @@ import { LoadingScreen } from '../components/loading/LoadingScreen';
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
-
-export const AppRouter = () => {
-    const auth = getAuth();
+const auth = getAuth();
+export const AppRouter = () => {    
     const dispatch = useDispatch();
     const [checking, setChecking] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);

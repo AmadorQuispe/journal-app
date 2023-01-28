@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { activeNote } from '../../actions/notes';
+import { setShowSidebar } from '../../actions/ui';
 import { getLongMonthName } from '../../helpers/util';
 
 export const JournalEntry = ({id,date,title,body,url}) => {  
@@ -8,6 +9,7 @@ export const JournalEntry = ({id,date,title,body,url}) => {
     const f =  new Date(date);
     const handleEntryClick = () => {
         dispatch(activeNote(id,{date,title,body,url}));
+        dispatch(setShowSidebar())
     }
     return (
         <div className="journal__entry pointer animate__animated animate__fadeIn" 

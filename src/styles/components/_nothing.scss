@@ -1,6 +1,6 @@
-
 .nothing__main-content {
     align-items: center;
+    position: relative;
     background-color: $primary;
     color: white;
     display: flex;
@@ -12,4 +12,17 @@
         text-align: center;
     }
 }
+.nothing__menu-hambur{
+    display: none;
+}
 
+@media screen and (max-width: 580px) {
+    .nothing__menu-hambur {
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        top: 1em;
+        left: 1em;
+    }
+
+}

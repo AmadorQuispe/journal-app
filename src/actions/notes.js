@@ -68,7 +68,8 @@ const refreshNote = (id, note) => ({
 
 export const startUploading = (file) => {
     return async (dispatch, getState)=> {
-        const {active:activeNote} = getState().notes;
+        const {active:noteActive} = getState().notes;
+        const { uid } = getState().auth;
         Swal.fire({
             title: 'Uploading...',
             text: 'Please wait...',
@@ -78,7 +79,11 @@ export const startUploading = (file) => {
             }
         })
         const fileUrl = await fileUpload(file);
-        dispatch(startSaveNote({...activeNote,url:fileUrl}))
+        const {id,...res} = noteActive;
+        const docRef = doc(db, uid, 'journal', 'notes', id);
+        await updateDoc(docRef, {...res,url:fileUrl});
+        dispatch(refreshNote(id, {...res,url:fileUrl}));
+        dispatch(activeNote(id,{...res,url:fileUrl}))
         Swal.close();
     }
 }

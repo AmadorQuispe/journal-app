@@ -6,7 +6,8 @@ import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
     const dispatch = useDispatch();
-    const { name } = useSelector( state => state.auth );
+    const {ui:{showSidebar},auth:{name}} = useSelector(state=>state);
+    
     const handleLogout = () => {
         dispatch(startLogout());
     }
@@ -14,30 +15,30 @@ export const Sidebar = () => {
         dispatch(startNewNote());
     }
     return (
-        <aside className="journal__sidebar">
-            
+        <aside className={`journal__sidebar ${showSidebar?'show':''} ` }>
             <div className="journal__sidebar-navbar">
                 <h3 className="mt-5">
-                    <i className="far fa-moon"></i>
-                    <span> { name }</span>
+                    <i className="fa-regular fa-note-sticky mr-1"></i>
+                    <span>{name}</span>
                 </h3>
 
-                <button 
-                    className="btn" 
+                <button
+                    className="btn"
                     onClick={handleLogout}
                 >
                     Logout
+                    <i className="fa-solid fa-arrow-right-from-bracket ml-1"></i>
                 </button>
             </div>
 
-            <div className="journal__new-entry" onClick={ handleAddEntry }>
+            <div className="journal__new-entry" onClick={handleAddEntry}>
                 <i className="far fa-calendar-plus fa-5x"></i>
                 <p className="mt-5">
                     New entry
                 </p>
             </div>
 
-            <JournalEntries />    
+            <JournalEntries />
 
         </aside>
     )

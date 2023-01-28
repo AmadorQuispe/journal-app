@@ -1,7 +1,7 @@
 .notes__main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 }
 
 
@@ -12,6 +12,10 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
+}
+
+.notes__appbar .menu-hambur{
+    display: none;
 }
 
 
@@ -49,4 +53,12 @@
 .notes__image img {
     box-shadow: 5px 5px $dark-grey;
     height: 150px;
+}
+
+@media (max-width: 580px) {
+    .notes__appbar .menu-hambur{
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+    }
 }

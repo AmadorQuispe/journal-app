@@ -1,7 +1,7 @@
 export const fileUpload = async (file) => {
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/dj8sfpt8a/upload';
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/qacode/upload';
     const formData = new FormData();
-    formData.append('upload_preset','react-journal');
+    formData.append('upload_preset','journal-app');
     formData.append('file',file);
     try {
         const resp = await fetch(cloudUrl,{

@@ -6,6 +6,7 @@ export const types = {
     uiRemoveError : '[UI] remove error',
     uiStartLoading: '[UI] Start Loading',
     uiFinishLoading: '[UI] Finish Loading',
+    uiSetShowSidebar : '[UI] set show or hide Sidebar',
 
     notesAddNew :'[Notes] New note',
     notesActive :'[Notes] Set active note',

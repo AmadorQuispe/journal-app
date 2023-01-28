@@ -2,7 +2,8 @@ import { types } from "./types";
 
 const initialState = {
     loading: false,
-    msgError: null
+    msgError: null,
+    showSidebar:true,
 }
 export const uiReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -19,12 +20,17 @@ export const uiReducer = (state = initialState, action) => {
         case types.uiStartLoading:
             return {
                 ...state,
-                loading:true
+                loading: true
             }
         case types.uiFinishLoading:
             return {
                 ...state,
-                loading:false
+                loading: false
+            }
+        case types.uiSetShowSidebar:
+            return {
+                ...state,
+                showSidebar: !state.showSidebar 
             }
 
         default:

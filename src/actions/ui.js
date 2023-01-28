@@ -17,3 +17,7 @@ export const finishLoading = () =>({
     type: types.uiFinishLoading
 });
 
+export const setShowSidebar = () => ({
+    type: types.uiSetShowSidebar
+})
+
